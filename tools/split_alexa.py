@@ -2,7 +2,7 @@
 
 import sys
 
-max = 14000
+max = 50
 
 if __name__ == '__main__':
     f = open(sys.argv[1])

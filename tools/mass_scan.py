@@ -3,15 +3,15 @@
 import sys
 import os
 
-cmd = './tls_prober/prober.py -l %s > results/%s_%s.fp'
+cmd = '../prober.py -l -p %s %s > results/%s-%s.fp'
 
 if __name__ == '__main__':
     f = open(sys.argv[1])
     for line in f:
         line = line[:-1]
-        ip, domain = line.split(',')
-        print ip, domain
+        port,ip = line.split(',')
+        print ip, port
 
-        os.system(cmd % (ip, ip, domain))
+        os.system(cmd % (port, ip, ip, port))
 
 

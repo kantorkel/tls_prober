@@ -396,12 +396,6 @@ def main():
         print 'Please submit your new fingerprint for inclusion in the next release!'
         return
     
-    # Print the results of the probe
-    if opts.list:
-        for key, val in sorted(results.items()):
-            print '%24s:\t%s' % (key, val)
-        return
-    
     # Print the matches
     matches = probe_db.find_matches(results)
     count = 0
@@ -416,5 +410,13 @@ def main():
 
         print("{0:>65}: {1:6.2f}%".format(server, score*100))
 
+    print("======================================================")
+
+    # Print the results of the probe
+    if opts.list:
+        for key, val in sorted(results.items()):
+            print '%24s:\t%s' % (key, val)
+        return
+    
 if __name__ == '__main__':
     main()
